@@ -1,92 +1,69 @@
-#include <stdio.h>
- 
-int main()
+#include<stdio.h>
+void seat(int n)
 {
-    int n,i,s,t;
-    scanf("%d\n",&n);
+    int i,seat,l;
     for(i=0;i<n;i++)
+{
+    int a=6,b=-1;
+    if(n>=(12*i+1)&&n<((12*i+1)+6))
     {
-        scanf("%d\n",&t);
-        if(t%12==1||t%12==0)
+    for(l=(12*i)+1;l<((12*i+1)+6);l++)
+    {
+            a-=1;
+                if(l==n)
+            {
+                  seat=n+(2*a + 1);
+                  printf("%d",seat);
+                    break;
+            }
+    }
+    }
+    else if(n>=(6*(2*i+1)+1)&&n<(6*(2*i+1)+7))
+    {
+        for(l=(6*(2*i+1)+1);l<(6*(2*i+1)+7);l++)
         {
-            if(t%12==0)
-            {
-                s=t-11;
-                printf("%d WS\n",s);
-            }
-            else
-            {
-                s=t+11;
-                printf("%d WS\n",s);
-            }
-            
+          b+=1;
+        if(l==n)
+           {
+                 seat=n-(2*b+1);
+                  printf("%d",seat);
+                  break;
+           }
         }
-        else if(t%12==6||t%12==7)
-        {
-            if(t%12==6)
-            {
-                s=t+1;
-                printf("%d WS\n",s);
-            }
-            else
-            {
-                s=t-1;
-                printf("%d WS\n",s);
-            }
-        }
-        else if(t%12==5||t%12==8)
-        {
-            if(t%12==5)
-            {
-                s=t+3;
-                printf("%d MS\n",s);
-            }
-            else
-            {
-                s=t-3;
-                printf("%d MS\n",s);
-            }
-        }
-        else if(t%12==2||t%12==11)
-        {
-            if(t%12==2)
-            {
-                s=t+9;
-                printf("%d MS\n",s);
-            }
-            else
-            {
-                s=t-9;
-                printf("%d MS\n",s);
-            }
-        }
-        else if(t%12==3||t%12==10)
-        {
-            if(t%12==3)
-            {
-                s=t+7;
-                printf("%d AS\n",s);
-            }
-            else
-            {
-                s=t-7;
-                printf("%d AS\n",s);
-            }
-        }
-        else
-        {
-            if(t%12==4)
-            {
-                s=t+5;
-                printf("%d AS\n",s);
-            }
-            else
-            {
-                s=t-5;
-                printf("%d AS\n",s);
-            }
-       }
-            }
-
-    return 0;
+    }
+}
+for(i=0;i<18;i++)
+{
+     if(n==((6*i)+1)||n==((6*i+1)+5))
+                   {
+                        printf(" WS\n");
+                        break;
+                   }
+                  else if(n==((6*i)+2)||n==((6*i+1)+4))
+                          {
+                              printf(" MS\n");
+                              break;
+                          }
+                          else if(n==((6*i)+3)||n==((6*i)+4))
+                           {
+                                printf(" AS\n");
+                                break;
+                           }
+}
+}
+void main()
+{
+    int t,i,n;
+    scanf("%d",&t);
+	if(t>=1&&t<=100000)
+	{
+		for(i=0;i<t;i++)
+    {
+    scanf("%d",&n);
+	if(n>=1&&n<=108)
+    seat(n);
+	continue;
+    }
+	}
+    
 }
